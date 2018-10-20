@@ -114,4 +114,96 @@ class WhtBookModel extends Model {
 		return $this->where($where)->update($data);
 	}
 
+    //首页banner推荐
+    public function getIndexRecommand($num =4)
+    {
+       return  $this->where(['is_display' => 1,'nav_recommend' => 1,])
+                ->select('book_name','book_auther','book_img','id')
+                ->orderBy('sort','asc')
+                ->groupBy('book_type')
+                ->limit($num)
+                ->get()
+                ->toArray();
+
+	}
+	
+	//阅读排行
+    public function readRand($num = 30)
+    {
+        return $this->where(['is_display' => 1,'nav_recommend' => 1,])
+                ->select('book_name','book_auther','book_img','id','book_type','book_desc')
+                ->orderBy('click_num','desc')
+                ->limit($num)
+                ->get()
+                ->toArray();
+
+        
+    }
+    
+    //最近更新
+    public function updateRank($num = 30)
+    {
+
+        return $this->where(['is_display' => 1,'nav_recommend' => 1,])
+            ->select('book_name','book_auther','book_img','id','book_type','book_desc')
+            ->orderBy('update_time','desc')
+            ->limit($num)
+            ->get()
+            ->toArray();
+    }
+
+    public function categoryIndex($catid,$page = 1,$num = 30)
+    {
+        $offset = ($page - 1) * $num;
+        $com = $this->where(['is_display' => 1,'book_type' => $catid]);
+        $list = $com->select('book_name','book_auther','book_img','id','book_type','book_desc')
+            ->orderBy('sort','desc')
+            ->orderBy('update_time','desc')
+            ->offset($offset)
+            ->limit($num)
+            ->get()
+            ->toArray();
+
+        $com = $this->where(['is_display' => 1,'book_type' => $catid]);
+        $total =  ceil($com->count('id') / $num);
+        return  ['list' => $list,'total' => $total,'num' => $num];
+    }
+
+    public function overBook($page,$num)
+    {
+        $offset = ($page - 1) * $num;
+        $com = $this->where(['is_display' => 1,'is_over' => 1]);
+        $list = $com->select('book_name','book_auther','book_img','id','book_type','book_desc')
+            ->orderBy('sort','desc')
+            ->orderBy('update_time','desc')
+            ->offset($offset)
+            ->limit($num)
+            ->get()
+            ->toArray();
+
+        $com = $this->where(['is_display' => 1,'is_over' => 1]);
+        $total =  ceil($com->count('id') / $num);
+        return  ['list' => $list,'total' => $total,'num' => $num];
+
+    }
+
+    public function bookDesc($bookid)
+    {
+        $bookInfo = $this->where(['is_display' => 1,'id' => $bookid])
+             ->select('book_name','book_auther','book_img','id','book_type','book_desc','update_time','chapter_id','new_chapter')
+            ->first();
+        return $bookInfo ? $bookInfo->toArray() : [];
+
+    }
+
+    public function search($keywords)
+    {
+
+        $bookInfo = $this->where(['is_display' => 1,['book_name','like','%'.$keywords.'%']])
+            ->select('book_name','book_auther','book_img','id','book_type','book_desc','update_time','chapter_id','new_chapter')
+            ->get()->toArray();
+        return ['search' => $bookInfo];
+
+    }
+
 }

@@ -17,4 +17,14 @@ class WhtTypeModel extends Model
     const CREATED_AT = 'create_time';
     const UPDATED_AT = 'update_time';
 
+
+    public function getType()
+    {
+        return  $this->where(['state' => 1])
+            ->select('type_name','id')
+            ->get()
+            ->toArray();
+        
+    }
+
 }

@@ -272,7 +272,7 @@ a:link {text-decoration: none;}
 .full_content{position: relative; height: 35px; line-height:35px; overflow: hidden; border-bottom: 1px dashed #a1d5f9; width: 95%; margin: 0px auto; }
 .full_content a{ color: #47A1DF;}
 .full_content .p1{position: absolute;color:#666}
-.full_content .p2{position: absolute; left: 35px;font-weight:bold;}
+.full_content .p2{position: absolute; left: 64px;font-weight:bold;}
 .full_content .p3{position: absolute; right: 0px; }
 .full_content .p3 a{color: #666;}
 .author_box{width: 96%;margin: 10px auto 10px auto; border: 1px solid #a1d5f9; padding: 10px 0px 10px 0px; border-radius: 5px;}

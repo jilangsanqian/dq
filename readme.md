@@ -16,3 +16,6 @@ php7.1 artisan queue:work --queue=categorySpider  --timeout=60 &
 php7.1 artisan queue:work --queue=chapeSpider  --timeout=60 &
 
 
+
+
+php7.1 artisan queue:work --queue=chapeSpider,categorySpider,bookSpider  --timeout=60 &
