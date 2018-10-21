@@ -79,9 +79,6 @@ class BookSpider
 
 
 
-
-
-
     //转编码格式
     function toutf8($str)
     {

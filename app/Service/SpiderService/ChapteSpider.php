@@ -96,6 +96,9 @@ class ChapteSpider {
 		return $links;
 	}
 
+
+
+
 	//转编码格式
 	function toutf8($str) {
 		$encode = mb_detect_encoding($str,['ASCII','UTF-8','GB2312','GBK','BIG5']);

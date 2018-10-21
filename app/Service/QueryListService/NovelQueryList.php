@@ -58,6 +58,7 @@ class NovelQueryList
             ->success(function (QueryList $ql,CurlMulti $curl,$r)use($sFun){
                 $url = $r['info']['url'];
                 $data = $ql->query()->getData();
+                $ql->destruct();
                 return $sFun($data->all(),$url);
             })->error(function ($errorInfo,CurlMulti $curl)use($eFun){
                 return $eFun($errorInfo['error'],$errorInfo['info']['url']);
