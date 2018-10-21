@@ -6,16 +6,19 @@ php7.1 artisan queue:work --queue=categorySpider --tries=3 --timeout=60 --sleep=
 php7.1 artisan queue:restart
 
 
-
-
-
-
-
-php7.1 artisan queue:work --queue=bookSpider  --timeout=60  &
-php7.1 artisan queue:work --queue=categorySpider  --timeout=60 & 
-php7.1 artisan queue:work --queue=chapeSpider  --timeout=60 &
-
-
-
-
 php7.1 artisan queue:work --queue=chapeSpider,categorySpider,bookSpider  --timeout=60 &
+
+
+…or create a new repository on the command line
+
+echo "# dq" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/jilangsanqian/dq.git
+git push -u origin master
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/jilangsanqian/dq.git
+git push -u origin master
