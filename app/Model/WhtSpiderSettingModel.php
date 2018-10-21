@@ -9,6 +9,9 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Request;
+
 
 class WhtSpiderSettingModel extends Model
 {
@@ -26,5 +29,27 @@ class WhtSpiderSettingModel extends Model
     {
         return $this->increment('finsh_page',1,$params);
     }
+
+    public function paginate() {
+        $perPage = Request::get('per_page',10);
+        $page = Request::get('page',1);
+        $start = ($page - 1) * $perPage;
+        $total = $this->count('id');
+        $data = $this->offset($start)->limit($perPage)->get();
+        $paginator = new LengthAwarePaginator($data,$total,$perPage);
+        $paginator->setPath(url()->current());
+        return $paginator;
+    }
+
+    public static function with($relations) {
+        return new static;
+    }
+
+    public function getList($ids)
+    {
+        return $this->whereIn('id',$ids)->get();
+
+    }
+
 
 }
