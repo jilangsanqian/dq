@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0039)http://m.biquge.com.tw/wapbook/213.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <title>{{$bookInfo['book_name']}}_最新章节_{{$bookInfo['book_auther']}}_ @lang('book.sitename')</title>
@@ -18,7 +17,7 @@
 <div class="currency_head">
     <div class="return"><a href="javascript:history.go(-1);">返回</a></div>
 	<h1>{{$bookInfo['book_name']}}</h1>
-	<div class="homepage"><a href="http://m.biquge.com.tw/">首页</a></div>
+	<div class="homepage"><a href="/">首页</a></div>
 </div>
 <div class="nav">
         <ul>
@@ -60,7 +59,7 @@
 		<ul class="infolink">
             @if($first)
                 <li><p><a href="/book/{{$first['book_id']}}/{{$first['chapter_id']}}.html" target="_blank">从头阅读</a></p></li>
-                <li><p><a href="/book/list/{{$first['book_id']}}.html" target="_blank">章节目录</a></p></li>
+                <li><p><a href="/book/list/{{$first['book_id']}}/1.html" target="_blank">章节目录</a></p></li>
                 {{--<li><p><a href="">推荐本书</a></p></li>--}}
                 {{--<li><p><a href="l">加入书架</a></p></li>--}}
             @endif

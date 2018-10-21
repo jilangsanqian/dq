@@ -37,11 +37,13 @@
         <form action="/search" method="post">
             <div class="txt">
                 {{ csrf_field() }}
-                <input id="txt1" name="s" type="text">
-                <input id="txt2" value="{{$keywords}}" type="submit">
+                &nbsp;&nbsp;&nbsp; <input id="txt1" name="s" value="{{$keywords}}" type="text">
+                <input id="txt2" value="点击搜索" type="submit">
                 <input name="type" value="articlename" type="hidden">
             </div>
         </form>
+
+
         <div class="rightpic"></div>
     </div>
 </div>
@@ -58,8 +60,8 @@
 <div class="footer">
 <div class="footer_info">
 <span><a href="/">首页</a></span>
-    {{--|<span><a href="http://m.biquge.com.tw/mybook.php" rel="nofollow">��ܹ���</a></span>--}}
-    {{--|<span><a href="http://m.biquge.com.tw/history.html" rel="nofollow">�Ķ���¼</a></span>--}}
+    {{--|<span><a href="/mybook.php" rel="nofollow">��ܹ���</a></span>--}}
+    {{--|<span><a href="/history.html" rel="nofollow">�Ķ���¼</a></span>--}}
     |<span><a href="#top" rel="nofollow">↑返回顶部</a>
 </span> 
 			</div>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)http://m.biquge.com.tw/wapbook/17762_9459729.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <title>{{$chapter_name}} @lang('book.sitename')</title>
@@ -60,7 +59,7 @@
 
 		<li><p class="p2"> <a href="/book/list/{{$book_id}}/1.html">返回目录</a></p></li>
 
-		{{--<li><p class="p2"><a href="http://m.biquge.com.tw/ajax.php?addmark=1&amp;aid=17762&amp;cid=9459729&amp;jumpurl=http%3A%2F%2Fm.biquge.com.tw%2Fwapbook%2F17762_9459729.html">加入书签</a></p></li>--}}
+		{{--<li><p class="p2"><a href="">加入书签</a></p></li>--}}
 		@if($nextchapter)
 			<li><p class="p1 p3"><a href="/book/{{$nextchapter['book_id']}}/{{$nextchapter['chapter_id']}}.html">下一章</a></p></li>
 		@endif
@@ -75,7 +74,7 @@
 <div class="footer_info">
 <span><a href="/">返回首页</a></span>
 	{{--|<span><a href="/mybook.html" rel="nofollow">书架管理</a></span>--}}
-	{{--|<span><a href="http://m.biquge.com.tw/history.html" rel="nofollow">阅读记录</a></span>--}}
+	{{--|<span><a href="/history.html" rel="nofollow">阅读记录</a></span>--}}
 	|<span><a href="/book/{{$book_id}}/{{$chapter_id}}.html#top" rel="nofollow">↑返回顶部</a>
 </span> 
 			</div>

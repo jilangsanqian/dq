@@ -1,1 +1,0 @@
-document.write('<a href="/login.php">µÇÂ¼</a>')

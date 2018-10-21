@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0039)http://m.biquge.com.tw/wapsort/1_1.html -->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">

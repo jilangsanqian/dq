@@ -107,7 +107,7 @@ class IndexController extends Controller {
 
         }
         $book = new RankBook;
-        $list = $book->getChapte($bookid,$page,10,$desc);
+        $list = $book->getChapte($bookid,$page,30,$desc);
         $bookInfo = $book->bookDesc($bookid);
         return view('list', array_merge($bookInfo,$list,$linkDesc));
 	}
